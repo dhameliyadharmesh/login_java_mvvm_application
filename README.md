@@ -1,4 +1,4 @@
-Login- Java MVVM Application
+#Login Java MVVM Application
 This sample showcases the following features:
 
 Databinding uses
