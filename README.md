@@ -1,2 +1,6 @@
 # login_java_mvvm_application
-This source code demonstrate about simple login features which includes Data binding, MVVM architecture components
+This sample showcases the following features:
+
+Databinding uses
+Structure code using MVVM architecture components
+Material design UI Components
