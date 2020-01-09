@@ -1,6 +1,6 @@
-# login_java_mvvm_application
+Login- Java MVVM Application
 This sample showcases the following features:
 
-Databinding uses\n
-Structure code using MVVM architecture components\n
+Databinding uses
+Structure code using MVVM architecture components
 Material design UI components
