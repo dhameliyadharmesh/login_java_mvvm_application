@@ -4,3 +4,4 @@ This sample showcases the following features:
 Databinding uses
 Structure code using MVVM architecture components
 Material design UI components
+Login form validation using MVVM architecture
