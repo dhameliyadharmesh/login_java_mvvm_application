@@ -8,7 +8,7 @@
 
         <variable
             name="loginViewModel"
-            type="com.sports.games.comjavamvvmapplication.ui.login.LoginViewModelModel" />
+            type="com.sports.games.comjavamvvmapplication.ui.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
