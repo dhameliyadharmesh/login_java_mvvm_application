@@ -1,6 +1,8 @@
 package com.sports.games.comjavamvvmapplication.ui.login;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,13 +31,38 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onPropertyChanged(Observable sender, int propertyId) {
                 if (loginViewModel.getLoginFormModel().onFormObserve().get()) {
-                    Toast.makeText(LoginActivity.this, "Invalid login form", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
         loginActivityBinding.setLifecycleOwner(this);
-        loginActivityBinding.setLoginViewModel(loginViewModel);
+        loginActivityBinding.setViewClickListener(new ViewClickListener());
         loginActivityBinding.edtLoginId.addTextChangedListener(new EditTextChangeListener(loginActivityBinding.tilLoginId));
         loginActivityBinding.edtLoginPwd.addTextChangedListener(new EditTextChangeListener(loginActivityBinding.tilLoginPwd));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            loginActivityBinding.txtCreateAccount.setText(Html.fromHtml(getString(R.string.dont_have_account), Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            loginActivityBinding.txtCreateAccount.setText(Html.fromHtml(getString(R.string.dont_have_account)));
+        }
+        loginActivityBinding.setLoginViewModel(loginViewModel);
+        loginActivityBinding.executePendingBindings();
+
+    }
+
+
+    public class ViewClickListener {
+
+        public void onCreateAccountClick() {
+
+        }
+
+        public void onForgotPasswordClick() {
+
+        }
+
+        public void onSignInClick() {
+            loginViewModel.getLoginFormModel().onSignInClicked();
+        }
+
     }
 }

@@ -3,9 +3,11 @@
     <string name="textview" translatable="false">TextView</string>
 
     <string name="login">LOGIN</string>
-    <string name="email_uname_phoneno">Email/Username/Phone Number</string>
+    <string name="email_uname_phoneno">Email</string>
     <string name="password">Password</string>
     <string name="sign_in">SIGN IN</string>
     <string name="err_username_required">Username required</string>
     <string name="err_password_required">Password required</string>
+    <string name="forgot_password" translatable="false">Forgot password?</string>
+    <string name="dont_have_account" translatable="false"><![CDATA[Don\'t have an account? <b>Sign up</b>]]></string>
 </resources>

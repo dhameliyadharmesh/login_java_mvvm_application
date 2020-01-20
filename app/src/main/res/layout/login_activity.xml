@@ -9,6 +9,10 @@
         <variable
             name="loginViewModel"
             type="com.sports.games.comjavamvvmapplication.ui.login.LoginViewModel" />
+
+        <variable
+            name="viewClickListener"
+            type="com.sports.games.comjavamvvmapplication.ui.login.LoginActivity.ViewClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,10 +47,10 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilLoginId"
                     style="@style/loginInputBoxStyle"
-                    android:inputErrorText="@{loginViewModel.loginFormModel.loginIdError}"
-                    android:hint="@string/email_uname_phoneno">
+                    android:hint="@string/email_uname_phoneno"
+                    android:inputErrorText="@{loginViewModel.loginFormModel.loginIdError}">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtLoginId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -58,8 +62,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilLoginPwd"
                     style="@style/loginInputPwdBoxStyle"
-                    android:inputErrorText="@{loginViewModel.loginFormModel.loginPwdError}"
-                    android:hint="@string/password">
+                    android:hint="@string/password"
+                    android:inputErrorText="@{loginViewModel.loginFormModel.loginPwdError}">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtLoginPwd"
@@ -73,8 +77,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
-                    android:onClick="@{()-> loginViewModel.loginFormModel.onSignInClicked()}"
+                    android:onClick="@{()-> viewClickListener.onSignInClick()}"
                     android:text="@string/sign_in" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:contentDescription="@string/forgot_password"
+                    android:onClick="@{()-> viewClickListener.onForgotPasswordClick()}"
+                    android:text="@string/forgot_password" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCreateAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp30"
+                    android:onClick="@{() -> viewClickListener.onCreateAccountClick()}"
+                    android:contentDescription="@string/forgot_password"
+                    android:text="@string/dont_have_account" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
