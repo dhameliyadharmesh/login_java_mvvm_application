@@ -7,7 +7,7 @@ import com.google.android.material.textfield.TextInputLayout;
 public class DataBindingUtils {
 
     @BindingAdapter({"android:inputErrorText"})
-    public static void setInputErrorText(TextInputLayout inputErrorText, Integer error) {
+    public static void setInputErrorText(final TextInputLayout inputErrorText, Integer error) {
         if (error == null) {
             inputErrorText.setError(null);
         } else {

@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.ObservableField;
 
 import com.sports.games.comjavamvvmapplication.BR;
 import com.sports.games.comjavamvvmapplication.R;
@@ -14,6 +15,11 @@ public class LoginFormModel extends BaseObservable {
     private String loginPwd;
     private Integer loginIdError = null;
     private Integer loginPwdError = null;
+    private ObservableField<Boolean> observableField = null;
+
+    LoginFormModel() {
+        observableField = new ObservableField<>(false);
+    }
 
     @Bindable
     public Integer getLoginIdError() {
@@ -23,6 +29,10 @@ public class LoginFormModel extends BaseObservable {
     private void setLoginIdError(Integer loginIdError) {
         this.loginIdError = loginIdError;
         notifyPropertyChanged(com.sports.games.comjavamvvmapplication.BR.loginIdError);
+    }
+
+    public ObservableField<Boolean> onFormObserve() {
+        return observableField;
     }
 
     @Bindable
@@ -36,29 +46,23 @@ public class LoginFormModel extends BaseObservable {
     }
 
     @Bindable
-    String getLoginId() {
+    public String getLoginId() {
         return loginId;
     }
 
-    void setLoginId(String loginId) {
+    public void setLoginId(String loginId) {
         this.loginId = loginId;
         notifyPropertyChanged(BR.loginId);
     }
 
     @Bindable
-    String getLoginPwd() {
+    public String getLoginPwd() {
         return loginPwd;
     }
 
-    void setLoginPwd(String loginPwd) {
+    public void setLoginPwd(String loginPwd) {
         this.loginPwd = loginPwd;
         notifyPropertyChanged(BR.loginPwd);
-    }
-
-    boolean isValidLoginForm() {
-        boolean valid = isValidLoginId();
-        valid = isValidLoginPwd() && valid;
-        return valid;
     }
 
     private boolean isValidLoginPwd() {
@@ -71,5 +75,17 @@ public class LoginFormModel extends BaseObservable {
         boolean isLoginIdValid = TextUtils.isEmpty(loginId);
         setLoginIdError(isLoginIdValid ? R.string.err_username_required : null);
         return isLoginIdValid;
+    }
+
+    public void onSignInClicked() {
+        boolean isValidLoginId = isValidLoginId();
+        if (isValidLoginId) {
+            setLoginIdError(R.string.err_username_required);
+        }
+        boolean isValidLoginPwd = isValidLoginPwd();
+        if (isValidLoginPwd) {
+            setLoginPwdError(R.string.err_password_required);
+        }
+        observableField.set(isValidLoginId || isValidLoginPwd);
     }
 }

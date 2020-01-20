@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">com.java.mvvm.application</string>
+
+    <string name="login">लॉग इन करें</string>
+    <string name="email_uname_phoneno">ईमेल / उपयोगकर्ता नाम / फोन नंबर</string>
+    <string name="password">पासवर्ड</string>
+    <string name="sign_in">साइन इन करें</string>
+    <string name="err_username_required">उपयोगकर्ता नाम आवश्यक है!</string>
+    <string name="err_password_required">पासवर्ड आवश्यक है</string>
+</resources>

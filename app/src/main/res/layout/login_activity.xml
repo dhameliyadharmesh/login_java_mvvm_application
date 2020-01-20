@@ -51,7 +51,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:text="@={loginViewModel.loginId}" />
+                        android:text="@{loginViewModel.loginFormModel.loginId}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -66,14 +66,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
-                        android:text="@={loginViewModel.loginPwd}" />
+                        android:text="@{loginViewModel.loginFormModel.loginPwd}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
-                    android:onClick="@{()-> loginViewModel.onSignInClicked()}"
+                    android:onClick="@{()-> loginViewModel.loginFormModel.onSignInClicked()}"
                     android:text="@string/sign_in" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
