@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-//        loginActivityBinding.setLifecycleOwner(this);
+        loginActivityBinding.setLifecycleOwner(this);
         loginActivityBinding.setLoginViewModel(loginViewModel);
         loginActivityBinding.edtLoginId.addTextChangedListener(new EditTextChangeListener(loginActivityBinding.tilLoginId));
         loginActivityBinding.edtLoginPwd.addTextChangedListener(new EditTextChangeListener(loginActivityBinding.tilLoginPwd));
